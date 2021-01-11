@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajax</title>
+
+ 
   </head>
   <body>
     <h1 style="background-color: #02DB87;height:50px;text-align: center;padding-top:20px;margin:0px;">Ajax Lesson No 2 </h1>
@@ -68,6 +70,33 @@
             }
           });
           }
+        });
+        $(document).on("click",".delete_btn",function(){
+          if (confirm("Delete Data?"))
+          {
+          var element=this;
+          var userId=$(element).data("id");
+          $.ajax({
+          url:"delete_ajax.php",
+          type:"POST",
+          data:{id:userId}, 
+          success:function(data){
+          if (data==1)
+          {
+            $(element).closest("tr").fadeOut();
+            $("#success").html("Data Deleted").slideDown();
+            $("#error").slideUp();
+          }
+          else
+          {
+          $("#error").html("Error in Deleting Data").slideDown();
+          $("#success").slideUp();
+
+          }  
+          } 
+          });
+        }
+        
         });
       });
     </script>

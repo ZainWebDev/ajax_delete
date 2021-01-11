@@ -23,6 +23,7 @@ $output='<table id="table_data" style="text-align:center;margin:10px auto" borde
 	<tr>
     	<th>ID</th>
     	<th>NAME</th>
+    	<th>Delete</th>
  		</tr>
  ';
  foreach($result as $r)
@@ -30,6 +31,7 @@ $output='<table id="table_data" style="text-align:center;margin:10px auto" borde
  	$output.="<tr>
  	<td>{$r['id']}</td>
  	<td>{$r['name']}</td>
+ 	<td><button data-id='{$r['id']}' class='delete_btn'>Delete</button></td>
  	</tr>";
  }
  	$output.="</table>";
